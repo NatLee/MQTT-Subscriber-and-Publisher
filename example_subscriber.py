@@ -18,7 +18,8 @@ if __name__ == "__main__":
 
     mc.client.loop_start() # official way to run in background!
 
-    # Avoid stop or you can use mc.clinet.loop_forever()
+    # Avoid stop or you can use mc.client.loop_forever()
+
     try:
         while True:
             pass

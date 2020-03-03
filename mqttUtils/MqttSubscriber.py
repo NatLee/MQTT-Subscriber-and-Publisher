@@ -2,6 +2,7 @@
 MQTT Subscriber
 """
 
+import pickle
 import paho.mqtt.client as mqtt
 
 class MqttSubscriber():
@@ -38,6 +39,5 @@ class MqttSubscriber():
 
     def on_message(self, client, userdata, msg):
         '''The callback for when a PUBLISH message is received from the server.'''
-
         # here you can process the message you get
-        print(msg.topic + " " + str(msg.payload))
+        print(msg.topic + " " + str(pickle.loads(msg.payload)))

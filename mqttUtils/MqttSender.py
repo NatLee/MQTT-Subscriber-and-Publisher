@@ -2,8 +2,7 @@
 Example for sending messages to mqtt server
 
 """
-
-import json
+import pickle
 import paho.mqtt.publish as publish
 
 class MqttSender():
@@ -20,7 +19,7 @@ class MqttSender():
 
     Methods
     ----------
-        send(data=dict)
+        send(data=pickle.OBJ)
             send the data to Mqtt server
 
     """
@@ -29,12 +28,12 @@ class MqttSender():
         self.hostname = hostname
         self.port = port
 
-    def send(self, data: dict) -> bool:
+    def send(self, data: pickle.OBJ) -> bool:
         """Send data
 
         Args:
-            data(dict): use to send to mqtt server
+            data(pickle.OBJ): use to send to mqtt server
         """
-        msgs = [{'topic': self.topic, 'payload': json.dumps(data)}]
+        msgs = [{'topic': self.topic, 'payload': pickle.dumps(data)}]
         publish.multiple(msgs, hostname=self.hostname, port=self.port)
         return True

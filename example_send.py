@@ -13,4 +13,6 @@ if __name__ == "__main__":
     yoo_sender = MqttSender('yoo', HOST)
 
     yee_sender.send({'test1': 1234, 'test2': 'yee'})
-    yoo_sender.send({'test1': 5678, 'test2': 'yoo'})
+    yoo_sender.send(1234)
+    yoo_sender.send(b'ABCDEFG')
+    yoo_sender.send(['1', 'a', 'b'])

@@ -22,7 +22,9 @@ The default is official server `test.mosquitto.org` with default port `1883`.
 python3 example_subscriber.py
 ```
 
-And, we can try sender(a.k.a publisher) to send messages.
+And, we can try sender(a.k.a publisher) to send messages. 
+
+The messages can be any format like `JSON`, `list`, `Numpy Array` and so on cause `Sender` will change the data you send to be **binary object** in the backend by using pickle package. 
 
 When the message is sent, all users with subscription related items can receive the message.
 
@@ -37,6 +39,8 @@ python3 example_sender.py
 
 ```
 Connected with result code 0
-yee b'{"test1": 1234, "test2": "yee"}'
-yoo b'{"test1": 5678, "test2": "yoo"}'
+yee {'test1': 1234, 'test2': 'yee'}
+yoo 1234
+yoo b'ABCDEFG'
+yoo ['1', 'a', 'b']
 ```
